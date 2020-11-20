@@ -16,12 +16,12 @@ from rest_framework import status
 class SnippetList(APIView):
 
     def get(self, request, format=None):
-        receive = Receive.objects.all()
-        serializer = ReceiveSerializer(receive, many=True)
+        send = Send.objects.all()
+        serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = SendSerializer(data=request.data)
+        serializer = ReceiveSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
