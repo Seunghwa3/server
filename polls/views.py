@@ -12,6 +12,11 @@ def item_list(request):
 	print(request)
 	if request.method == 'GET':
 		print('get')
+
+		area = self.request.query_params.get('area')
+    	age= self.request.query_params.get('age')
+    	gender = self.request.query_params.get('gender')
+		print(gender)
 		quaryset = Receive.objects.all()
 		serializer = ReceiveSerializer(quaryset, many=True)
 		return JsonResponse(serializer.data, safe=False)
