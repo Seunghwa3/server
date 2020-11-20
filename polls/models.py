@@ -14,7 +14,7 @@ class Send(models.Model):
 	product_name = models.CharField(max_length=100)
 	price        = models.IntegerField(default=0)
 	detail       = models.CharField(max_length=300)
-	image        = models.ImageField(upload_to='static/images/', blank=True, null=True)
+	image_addr   = models.CharField(max_length=300)
 
 	def __str__(self):
 		return self.product_name

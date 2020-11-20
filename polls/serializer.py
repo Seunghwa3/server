@@ -7,8 +7,6 @@ class ReceiveSerializer(serializers.ModelSerializer):
 		fields = '__all__'
 
 class SendSerializer(serializers.ModelSerializer):
-	receive = models.ForeignKey(Receive, on_delete=models.CASCADE, blank=True)
-	
 	class Meta:
 		model = Send
-		fields = ['receive', 'product_name', 'price', 'detail']
+		fields = ['product_name', 'price', 'detail','image_addr']
