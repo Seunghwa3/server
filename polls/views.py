@@ -17,6 +17,7 @@ def item_list(request):
     	age= self.request.queryset.get('age')
     	gender = self.request.queryset.get('gender')
 		
+		quaryset = Receive.objects.all()
 		serializer = ReceiveSerializer(quaryset, many=True)
 		return JsonResponse(serializer.data, safe=False)
 	
