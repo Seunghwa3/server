@@ -16,8 +16,7 @@ from rest_framework import status
 class SnippetList(APIView):
 
     def get(self, request, format=None):
-        receive = Receive.objects.all()
-        send = Send.objects.filter(product_name=receive['addr'])
+        send = Send.objects.filter(product_name="A")
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
