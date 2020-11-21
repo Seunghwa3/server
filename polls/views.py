@@ -12,13 +12,6 @@ from rest_framework import status
 class SnippetList(APIView):
 
     def get(self, request, format=None):
-        send = Send.objects.all().filter(product_name='A')
+        send = Send.objects.all().filter(product_name='A_product')
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = ReceiveSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
