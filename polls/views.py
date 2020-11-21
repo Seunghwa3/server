@@ -17,6 +17,7 @@ class SnippetList(APIView):
 
     def get(self, request, format=None):
         Area = Receive.objects.values("area")
+        print(Area)
         send = Send.objects.all().filter(product_name='A')
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
