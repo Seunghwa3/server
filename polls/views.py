@@ -16,7 +16,7 @@ class PostList(APIView):
         age = request.GET['age']
         gender =request.GET['gender']
         
-       receive = Receive.objects.all()
+        receive = Receive.objects.all()
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
