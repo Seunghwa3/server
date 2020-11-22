@@ -4,7 +4,7 @@ from polls.models import *
 class ReceiveSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Receive
-		fields = '__all__'
+		fields = ['area', 'age', 'gender']
 
 class SendSerializer(serializers.ModelSerializer):
 	class Meta:
