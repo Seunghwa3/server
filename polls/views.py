@@ -12,12 +12,19 @@ from rest_framework import status
 class PostList(APIView):
         
     def get(self, request, format=None):
+        area = request.GET['area']
+        age = request.GET['age']
+        gender =request.GET['gender']
+        
+        
+        """
         send = Send.objects.all()
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
+        """
 
     def post(self, request, format=None):
-        serializer = ReceiveSerializer(data=request.data)
+        serializer = SendSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
