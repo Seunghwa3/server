@@ -12,7 +12,7 @@ from rest_framework import status
 class SnippetList(APIView):
         
     def get(self, request, format=None):
-        send = Send.objects.all().filter(product_name=request)
+        send = Send.objects.all()
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
