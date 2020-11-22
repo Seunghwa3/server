@@ -12,12 +12,11 @@ from rest_framework import status
 class PostList(APIView):
         
     def get(self, request, format=None):
-        area = request.GET['area']
-        age = request.GET['age']
-        gender =request.GET['gender']
+        product_name = request.GET['product_name']
+        price = request.GET['price']
         
-        receive = Receive.objects.all()
-        serializer = SendSerializer(receive, many=True)
+        send = Send.objects.all()
+        serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
