@@ -12,7 +12,8 @@ from rest_framework import status
 class PostList(APIView):
 
     def get(self, request, format=None):
-        send = Send.objects.all()
+        area = request.GET['area']
+        send = Send.objects.all().filter(area=area)
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
