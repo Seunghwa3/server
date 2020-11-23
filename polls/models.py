@@ -11,6 +11,7 @@ class Receive(models.Model):
 		return self.area
 
 class Send(models.Model):
+	area         = models.CharField(max_length=10)
 	product_name = models.CharField(max_length=100)
 	price        = models.IntegerField(default=0)
 	detail       = models.CharField(max_length=300)

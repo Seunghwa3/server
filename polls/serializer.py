@@ -9,4 +9,4 @@ class ReceiveSerializer(serializers.ModelSerializer):
 class SendSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Send
-		fields = ['product_name', 'price', 'detail','image_addr']
+		fields = ['product_id', 'product_name', 'price', 'detail','image_addr']
