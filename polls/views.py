@@ -17,6 +17,7 @@ class PostList(APIView):
         
         area = request.GET['area']
         user_id = request.GET['user_id']
+        """
         my_filter_qs = Q()
         for creator in product_id:
             my_filter_qs = my_filter_qs | Q(creator=creator)
@@ -27,8 +28,7 @@ class PostList(APIView):
         """
         for i in tmp :
             product_id = i
-            send = Send.objects.all().filter(product_id=product_id)
-        """
+            send = Send.objects.all().filter(product_id=product_id[0])
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
