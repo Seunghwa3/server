@@ -14,11 +14,12 @@ from django.db.models import Q
 class PostList(APIView):
 
     def get(self, request, format=None):
-        
+        """
         area = request.GET['area']
         user_id = request.GET['user_id']
+        
         tmp = svdclass.svd(user_id, area)
-        """
+        
         my_filter_qs = Q()
         for creator in product_id:
             my_filter_qs = my_filter_qs | Q(creator=creator)
@@ -26,10 +27,12 @@ class PostList(APIView):
             serializer = SendSerializer(send, many=True)
             return Response(serializer.data)
         tmp = svdclass.svd(user_id, area)
-        """
+        
         for i in tmp :
             product_id = i
-            send = Send.objects.all().filter(product_id=product_id[0])
+        """
+        product_id = request.GET['product_id']    
+        send = Send.objects.all().filter(product_id=product_id)
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
