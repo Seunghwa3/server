@@ -16,7 +16,7 @@ class PostList(APIView):
         area = request.GET['area']
         user_id = request.GET['user_id']
         product_id = svdclass.svd(user_id,area)
-        send = Send.objects.all().filter(product_id=product_id)
+        send = Send.objects.all().get(product_id=product_id)
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
