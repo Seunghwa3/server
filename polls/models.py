@@ -4,14 +4,13 @@ from django.db import models
 
 class Receive(models.Model):
 	area         = models.CharField(max_length=10)
-	age          = models.IntegerField(default=0)
-	gender       = models.CharField(max_length=30)
+	user_id      = models.CharField(max_length=30)
 
 	def __str__(self):
 		return self.area
 
 class Send(models.Model):
-	area         = models.CharField(max_length=10)
+	product_id   = models.IntegerField(default=0)
 	product_name = models.CharField(max_length=100)
 	price        = models.IntegerField(default=0)
 	detail       = models.CharField(max_length=300)
