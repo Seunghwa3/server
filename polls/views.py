@@ -17,6 +17,7 @@ class PostList(APIView):
         
         area = request.GET['area']
         user_id = request.GET['user_id']
+        tmp = svdclass.svd(user_id, area)
         """
         my_filter_qs = Q()
         for creator in product_id:
