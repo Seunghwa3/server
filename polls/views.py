@@ -6,7 +6,7 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from svd.svd_recommend2 import svdclass
+"""from svd.svd_recommend2 import svdclass"""
 
 # Create your views here.
 
