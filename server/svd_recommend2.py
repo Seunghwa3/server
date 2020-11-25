@@ -47,7 +47,7 @@ class svdclass:
         predictions.sort(key=sortkey_est, reverse=True)
         #print(predictions)
         top_product_id = [int(pred.iid) for pred in predictions]
-        return 594450209
+        return top_product_id
 
 #fortest
 #print(svdclass.svd("A2CX7LUOHB2NDG", 'A'))

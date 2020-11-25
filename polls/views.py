@@ -6,8 +6,7 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-"""from polls.svd_recommend2 import svdclass"""
-from django.db.models import Q
+from svd_recommend2 import svdclass
 
 # Create your views here.
 
@@ -16,7 +15,7 @@ class PostList(APIView):
     def get(self, request, format=None):
         area = request.GET['area']
         user_id = request.GET['user_id']
-        product_id = 594450209
+        product_id = svdclass.svd(user_id, area)
         send = Send.objects.all().filter(product_id=product_id)
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
