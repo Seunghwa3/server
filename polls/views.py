@@ -25,7 +25,7 @@ class PostList(APIView):
         user_id = request.GET['user_id']
         
         def svd(user_id, area) :
-            algo=SVDpp()
+            algo = SVDpp()
             algo = SVDpp(n_factors=100, n_epochs=15)
             # 3. train model 저장
             file_name=os.path.expanduser('./dump')
@@ -37,7 +37,7 @@ class PostList(APIView):
 
             #nowarea="C"
             #user=str("A2CX7LUOHB2NDG") # usre ID 받아오기
-            neww=Area[Area['Area']==area]['productID'].tolist() # 구역 받아오기
+            neww=Area[Area['area']==area]['productID'].tolist() # 구역 받아오기
             predictions=[algo.predict(str(user_id), str(productID)) for productID in neww] # 예측
             ######
             def sortkey_est(pred):
