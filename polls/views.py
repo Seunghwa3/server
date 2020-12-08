@@ -1,13 +1,5 @@
 import json
 
-import os
-import csv
-import pandas as pd
-from surprise import SVDpp
-from surprise import Dataset
-from surprise import Reader
-from surprise import dump
-from surprise.model_selection import train_test_split
 
 from polls.models import Send, Receive
 from polls.serializer import ReceiveSerializer, SendSerializer
