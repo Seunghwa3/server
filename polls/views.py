@@ -41,7 +41,7 @@ class PostList(APIView):
             predictions=[algo.predict(str(user_id), str(productID)) for productID in neww] # 예측
             ######
             def sortkey_est(pred):
-            return pred.est
+                return pred.est
             predictions.sort(key=sortkey_est, reverse=True)
             #print(predictions)
             top_product_id = [int(pred.iid) for pred in predictions]
