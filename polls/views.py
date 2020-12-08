@@ -26,7 +26,7 @@ class PostList(APIView):
         
 
 
-        send = Send.objects.filter(product_id="594450209")
+        send = Send.objects.filter(product_id=594450209)
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
