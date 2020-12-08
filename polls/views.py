@@ -48,13 +48,6 @@ class PostList(APIView):
             top_product_id=top_product_id[:5]
             return top_product_id
 
-        #fortest
-        tmp=svdclass.svd("A2CX7LUOHB2NDG", 'A')
-        # return vlaue :
-        #[594450209, 321732944, 594287995, 594033926, 594033934, 594296420, 594033896, 511189877, 594450705, 594451647, 594477670, 594017343, 594017580, 594202442, 594481813, 558835155, 594478162, 594012015, 439886341, 528881469]
-
-        print(tmp[0])
-
         send = Send.objects.all().filter(product_id=top_product_id)
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
