@@ -1,5 +1,8 @@
 import json
 
+import os
+import csv
+
 
 from polls.models import Send, Receive
 from polls.serializer import ReceiveSerializer, SendSerializer
@@ -18,7 +21,7 @@ class PostList(APIView):
         
 
 
-        send = Send.objects.all()
+        send = Send.objects.filter(product_id="594450209")
         serializer = SendSerializer(send, many=True)
         return Response(serializer.data)
 
